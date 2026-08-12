@@ -4,4 +4,20 @@
   --nomand:#b6afa4;
   --bone:#e7d8c5;
   --white:#ffffff;
+
 }
+
+.cod-gray { background-color: var(--cod-gray); }
+.cod-gray-children > * { background-color: var(--cod-gray);}
+
+.boulder { background-color: var(--boulder); }
+.boulder-children > *  {  background-color: var(--boulder);}
+
+.nomand { background-color: var(--nomand);}
+.nomand-children > * {background-color: var(--nomand);}
+
+.bone{ background-color: var(--bone);}
+.bone-children > * { background-color: var(--bone);}
+
+.white{ background-color: var(--white); }
+.white-children > * {background-color: var(--white);}

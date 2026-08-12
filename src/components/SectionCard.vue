@@ -34,7 +34,8 @@ defineProps<{
  div{
     background: var(--cod-gray);
     color: var(--white);
-    padding: var(--s-1);
+    padding-inline: var(--s-1);
+   padding-block: var(--s-10);
     text-decoration: none;
    font-size: var(--s1);
 

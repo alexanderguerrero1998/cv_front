@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import '../assets/paletaColores/paleta.css'
+
 defineProps<{
   _id: string
   name: string
@@ -10,23 +12,31 @@ defineProps<{
   icon: string
   linkVideo: string
 }>()
-
-
 </script>
 
 <template>
-  <div class="card">
-    <h3>{{ name }}</h3>
-    <p>{{ shortDescription }}</p>
+  <div class="box box-padding">
+    <div class="stack margin-stack">
+      <h3>{{ name }}</h3>
+      <p>{{ shortDescription }}</p>
 
-    <!-- slot for see detail each project-->
-    <div v-if="$slots.details">
-      <slot name="details"/>
-    </div>
-
-    <!-- slot for edit or delete a project-->
-    <div v-if="$slots.actions">
-      <slot name="actions" />
+      <!-- slot for see detail each project-->
+      <div v-if="$slots.details">
+        <slot name="details" />
+      </div>
+      <!-- slot for edit or delete a project-->
+      <div v-if="$slots.actions">
+        <slot name="actions" />
+      </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.margin-stack {
+  --margin-stack: var(--s-10);
+}
+.box-padding {
+  --box-padding: var(--s1);
+}
+</style>

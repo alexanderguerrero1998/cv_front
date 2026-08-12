@@ -1,0 +1,16 @@
+@import './escalaModular/scale.css';
+@import './paletaColores/paleta.css';
+@import './primitives/primitivas.css';
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+}
