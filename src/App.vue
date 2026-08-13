@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue'
 import { getPerson } from '@/services/profileServices.ts'
-import { getSection, type Section } from '@/services/sectionServices.ts'
+import { getSection } from '@/services/sectionServices.ts'
 interface Person {
   _id: string
   name: string
@@ -14,9 +14,10 @@ interface Person {
   socials: { icon: string; url: string }[]
 }
 const person = ref<Person[]>([])
+const error = ref('')
 onMounted(async () => {
   try {
-    const [getP, getS] = await Promise.all([getPerson(), getSection()])
+    const [getP] = await Promise.all([getPerson(), getSection()])
     person.value = getP
   } catch (e) {
     if (e instanceof Error) error.value = e.message
@@ -28,7 +29,7 @@ const nickname = computed(() => person.value[0]?.nickname.toUpperCase() ?? '')
 
 <template>
   <div class="box-header">
-    <div class="cover">
+    <div class="">
       <div class="main-content">
         <RouterLink to="/"> {{ nickname }} </RouterLink>
       </div>

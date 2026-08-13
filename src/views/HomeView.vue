@@ -69,7 +69,7 @@ const contactLinks = computed(
 
           <div class="box-download">
             <p>Download Curriculum PDF</p>
-            <a>[icon]</a>
+            <a></a>
           </div>
 
           <div class="box-links">

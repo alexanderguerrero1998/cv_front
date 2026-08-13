@@ -56,7 +56,7 @@ const embedUrl = computed(() => {
   <div v-else-if="error">{{ error }}</div>
   <div class="box" v-else>
     <div class="cover">
-      <div class="center center-max">
+      <div class="center">
         <div v-if="project" class="stack">
           <div class="box-info">
             <div class="stack margin-stack">

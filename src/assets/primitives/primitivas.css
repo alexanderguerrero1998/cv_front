@@ -12,10 +12,15 @@
   flex-direction: column;
   justify-content: start;
 }
+.stack > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 .stack > * + * {
   margin-top: var(--margin-stack,var(--s2));
 }
 .center {
+
   margin-inline: auto;
   padding-inline: var(--center-padding,var(--s0));
   max-width: var(--center-max, 90ch);
@@ -34,6 +39,7 @@
   padding: var(--cover-padding,var(--s0));
 }
 .cover > .center {
+
   margin-top: auto;
   margin-bottom: auto;
 }
