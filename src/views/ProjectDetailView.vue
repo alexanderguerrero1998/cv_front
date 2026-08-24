@@ -75,23 +75,24 @@ const embedUrl = computed(() => {
             </div>
           </div>
 
-          <div class="box-video">
+          <div class="frame">
             <iframe
               v-if="embedUrl"
               :src="embedUrl"
               title="Video del proyecto"
               frameborder="0"
               allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-              "
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
               allowfullscreen
             />
           </div>
+
         </div>
       </div>
     </div>
@@ -99,12 +100,7 @@ const embedUrl = computed(() => {
 </template>
 
 <style scoped>
-.box-video iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-  border-radius: 8px;
-}
+
 .margin-stack {
   --margin-stack: var(--s-5);
 }

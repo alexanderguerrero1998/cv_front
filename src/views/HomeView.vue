@@ -4,7 +4,6 @@ import { getPerson } from '@/services/profileServices.ts'
 import { getSection, type Section } from '@/services/sectionServices.ts'
 import SectionCard from '@/components/SectionCard.vue'
 
-
 interface Person {
   _id: string
   name: string
@@ -68,8 +67,14 @@ const contactLinks = computed(
           </div>
 
           <div class="box-download">
-            <p>Download Curriculum PDF</p>
-            <a></a>
+            <a href="#">
+              <span dir="rtl" class="with-icon ">
+                <svg class="icon">
+                  <use href="#icon-download"></use>
+                </svg>
+                Download File
+              </span>
+            </a>
           </div>
 
           <div class="box-links">
@@ -90,11 +95,10 @@ const contactLinks = computed(
 </template>
 
 <style scoped>
-
-
 img {
   width: 5em;
 }
+
 .box-info {
   font-size: clamp(var(--s3), 4vw, var(--s4));
   display: flex;
@@ -108,4 +112,9 @@ img {
   display: flex;
   color: inherit;
 }
+.box-download > a {
+
+  color: inherit;
+}
+
 </style>

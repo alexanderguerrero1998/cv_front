@@ -82,3 +82,104 @@
     grid-template-columns: repeat(auto-fit, minmax(min(var(--minimum), 100%), 1fr));     /* ↓ Mejora con la función min() en múltiples columnas */
   }
 }
+
+.frame {
+  aspect-ratio:16/9 ;
+  position: relative;
+}
+.frame > * {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.frame > img,
+.frame > video,
+.frame > iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reel {
+  /* ↓ Propiedades personalizadas para facilitar el ajuste */
+  --space: 1rem;
+  --color-light: #fff;
+  --color-dark: #000;
+  --reel-height: auto;
+  --item-width: 25ch;
+  display: flex;
+  height: var(--reel-height);
+  /* ↓ Desbordamiento */
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* ↓ Para Firefox */
+  scrollbar-color: var(--color-light) var(--color-dark);
+}
+.reel::-webkit-scrollbar {
+  /*
+  ↓ En su lugar, podrías hacer que la altura de la barra de
+  desplazamiento sea también una variable. Esto se deja
+  como ejercicio (¡ten cuidado con el linear-gradient!)
+  */
+  height: 1rem;
+}
+.reel::-webkit-scrollbar-track {
+  background-color: var(--color-dark);
+}
+.reel::-webkit-scrollbar-thumb {
+  background-color: var(--color-dark);
+  /* ↓ El linear-gradient 'inseta' el thumb blanco dentro de la barra negra */
+  background-image: linear-gradient(var(--color-dark) 0, var(--color-dark) 0.25rem, var(--color-light) 0.25rem, var(--color-light) 0.75rem, var(--color-dark) 0.75rem);
+}
+.reel > * {
+  /*
+  ↓ Solo un `width` no funcionaría porque
+  `flex-shrink: 1` (predeterminado) todavía se aplica
+  */
+  flex: 0 0 var(--item-width);
+}
+.reel > img {
+  /* ↓ Reinicio para imágenes */
+  height: 100%;
+  flex-basis: auto;
+  width: auto;
+}
+.reel > * + * {
+  margin-left: var(--space);
+}
+.reel.overflowing:not(.no-bar) {
+  /* ↓ Solo aplicar si hay una barra de desplazamiento (ver el JavaScript) */
+  padding-bottom: var(--space);
+}
+/* ↓ Ocultar barra de desplazamiento con la clase `no-bar` */
+.reel.no-bar {
+  scrollbar-width: none;
+}
+.reel.no-bar::-webkit-scrollbar {
+  display: none;
+}
+.icon {
+  height: 0.75em;
+  /* ↓ Anular el valor em con `1cap`
+  donde `cap` sea compatible */
+  height: 1cap;
+  width: 0.75em;
+  width: 1cap;
+}
+.with-icon {
+  /* ↓ Establecer el contexto `inline-flex`,
+  que elimina el espacio de palabras */
+  display: inline-flex;
+  align-items: baseline;
+}
+.with-icon .icon {
+  /* ↓ Usar la propiedad de margen lógico
+  y una variable --space con un respaldo */
+  margin-inline-end: var(--space, 0.5em);
+}
