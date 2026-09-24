@@ -53,31 +53,35 @@ const contactLinks = computed(
     <div class="cover">
       <div class="center">
         <div class="stack">
-          <div class="box-info">
-            <div class="side-bar">
-              <!--<div><img alt="" src="../../src/assets/img/AAA.JPG"></div>-->
-              <div>
-                <h1>{{ firstName }} {{ lastName }}</h1>
+          <div class="box-info center">
+            <div class="stack">
+              <div class="center">
+                <img alt="" src="../../src/assets/img/G.png" />
+              </div>
+
+              <div class="names center">
+                {{ firstName }}
+                {{ lastName }}
+              </div>
+
+              <div class="box-desciption center">
+                <p>{{ person[0]?.biography }}</p>
+              </div>
+
+              <div class="box-download center">
+                <a href="#">
+                  <span dir="rtl" class="with-icon">
+                    <svg class="icon">
+                      <use href="#icon-download"></use>
+                    </svg>
+                    <p>Download CV (PDF)</p>
+                  </span>
+                </a>
               </div>
             </div>
           </div>
 
-          <div class="box-desciption">
-            <p>{{ person[0]?.biography }}</p>
-          </div>
-
-          <div class="box-download">
-            <a href="#">
-              <span dir="rtl" class="with-icon ">
-                <svg class="icon">
-                  <use href="#icon-download"></use>
-                </svg>
-                Download File
-              </span>
-            </a>
-          </div>
-
-          <div class="box-links">
+          <div class="box-links center">
             <div class="switcher">
               <div v-for="s in section" :key="s._id">
                 <SectionCard v-bind="s" />
@@ -96,11 +100,10 @@ const contactLinks = computed(
 
 <style scoped>
 img {
-  width: 5em;
+  width: clamp(300px, 30vw, 500px);
 }
 
 .box-info {
-  font-size: clamp(var(--s3), 4vw, var(--s4));
   display: flex;
   color: inherit;
 }
@@ -109,12 +112,28 @@ img {
   color: inherit;
 }
 .box-download {
+  font-size: var(--s0);
   display: flex;
   color: inherit;
 }
 .box-download > a {
-
-  color: inherit;
+  color: black;
+  background: white;
+  border-radius: var(--s-6);
+  padding-inline: var(--s0);
+  font-weight: 500;
 }
-
+.box-desciption {
+  text-align: center;
+  font-size: clamp(var(--s-1), 1vw, var(--s1));
+}
+.box {
+  background: var(--cod-gray);
+  color: var(--white);
+}
+.names {
+  text-align: center;
+  font-size: clamp(var(--s3), 4vw, var(--s6));
+  font-weight: 700;
+}
 </style>

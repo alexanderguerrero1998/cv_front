@@ -5,6 +5,8 @@
   --bone:#e7d8c5;
   --white:#ffffff;
 
+  --gray-1:hsl(120, 50%, 50%);
+
 }
 
 .cod-gray { background-color: var(--cod-gray); }

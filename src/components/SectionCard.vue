@@ -37,7 +37,9 @@ defineProps<{
     padding-inline: var(--s-1);
    padding-block: var(--s-10);
     text-decoration: none;
-   font-size: var(--s1);
+   font-size: var(--s-1);
+   text-transform: uppercase;
+   text-decoration: underline;
 
 
  }

@@ -17,13 +17,13 @@
   margin-bottom: 0;
 }
 .stack > * + * {
-  margin-top: var(--margin-stack,var(--s2));
+  margin-top: var(--margin-stack,var(--s-1));
 }
 .center {
 
   margin-inline: auto;
   padding-inline: var(--center-padding,var(--s0));
-  max-width: var(--center-max, 90ch);
+  max-width: var(--center-max, 70ch);
   box-sizing: content-box;
 }
 
@@ -35,11 +35,10 @@
 .cover {
   display: flex;
   flex-direction: column;
-  min-height: var(--container-min-height,calc(100vh - var(--s7)));
+  min-height: var(--container-min-height,100vh);
   padding: var(--cover-padding,var(--s0));
 }
 .cover > .center {
-
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -65,7 +64,7 @@
 }
 .switcher > * {
   flex-grow: 1;
-  flex-basis: calc((30rem - 100%) * 999);
+  flex-basis: calc((10rem - 100%) * 999);
 }
 /* Si hay mas de 5 elementos cambia a columna */
 .switcher > :nth-last-child(n + 5),

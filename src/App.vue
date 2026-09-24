@@ -28,10 +28,12 @@ const nickname = computed(() => person.value[0]?.nickname.toUpperCase() ?? '')
 </script>
 
 <template>
-  <div class="box-header">
-    <div class="">
-      <div class="main-content">
-        <RouterLink to="/"> {{ nickname }} </RouterLink>
+  <div class="box box-header">
+    <div class="cover1">
+      <div class="center">
+        <div class="main-content">
+          <RouterLink to="/"> {{ nickname }} </RouterLink>
+        </div>
       </div>
     </div>
   </div>
@@ -41,10 +43,7 @@ const nickname = computed(() => person.value[0]?.nickname.toUpperCase() ?? '')
 
 <style scoped>
 .box-header {
-  display: flex;
   background: var(--cod-gray);
-  height: var(--s7);
-  padding-left: var(--s0);
 }
 .main-content {
   color: var(--white);
@@ -54,7 +53,15 @@ const nickname = computed(() => person.value[0]?.nickname.toUpperCase() ?? '')
   text-decoration: none;
   color: inherit;
 }
-.cover {
-  --cover-min-height: 100%;
+.cover1 {
+  display: flex;
+  flex-direction: column;
+  min-height: var(--container-min-height, 10vh);
+  padding: var(--cover-padding, var(--s0));
 }
+.cover1 > .center1 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 </style>
