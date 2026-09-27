@@ -76,7 +76,20 @@ const contactLinks = computed(
                 </div>
               </div>
 
-              <div class="box-why"></div>
+              <div class="box-why">
+                <p>ABOUT ME</p>
+                <p>
+                  To be honest, it all started with a pretty simple question: why do things work the
+                  way they do? That curiosity grew into a genuine desire to understand systems from
+                  the inside—not just using them, but knowing how to build them.
+                </p>
+                <p>
+                  That’s what led me to study Information Technology, and from there, I started
+                  dabbling in a bit of everything: interfaces, servers, and how the different parts
+                  of a system communicate with each other. I still have that same curiosity—wanting
+                  to understand how something works and then build it myself.
+                </p>
+              </div>
 
               <div class="box-footer">
                 <div class="stack margin-stack-footer">
@@ -84,7 +97,7 @@ const contactLinks = computed(
                   <p>C. Juan Pio Montufar & Manuel Quiroga</p>
                   <p>alexanderxn3@gmail.com</p>
                   <p>099 466 4469 | 099 488 7284</p>
-                  <div class="box-download ">
+                  <div class="box-download">
                     <a :href="person[0]?.linkImg" download>
                       <span dir="rtl" class="with-icon">
                         <svg class="icon">
@@ -126,11 +139,11 @@ img {
   color: var(--gray-10);
   background: var(--gray-1);
   border-radius: var(--s-6);
-  padding:var(--s-5);
+  padding: var(--s-5);
   font-weight: 500;
 }
 .box-desciption {
-  text-align: center;
+  /*text-align: center;*/
   font-size: clamp(var(--s-1), 1vw, var(--s1));
   color: var(--gray-6);
 }
@@ -146,6 +159,10 @@ img {
 
 .box-footer {
   font-size: var(--s-3);
+  color: var(--gray-6);
+}
+.box-why {
+  font-size: var(--s-1);
   color: var(--gray-6);
 }
 
