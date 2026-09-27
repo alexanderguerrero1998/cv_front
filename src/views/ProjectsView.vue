@@ -14,7 +14,9 @@ interface Project {
   linkVideo: string
 }
 
-const API_URL = 'http://localhost:3000/api/portfolio'
+//const API_URL = 'http://localhost:3000/api/portfolio'
+const API_URL = `${import.meta.env.VITE_API_URL}/api/portfolio`
+
 const projects = ref<Project[]>([])
 const error = ref('')
 const loading = ref(true)
@@ -83,7 +85,7 @@ onMounted(() => {
   font-weight: 500;
   text-decoration: none;
 }
-.box-link-color:hover{
+.box-link-color:hover {
   background: var(--gray-9);
 }
 

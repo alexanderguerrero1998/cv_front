@@ -12,7 +12,8 @@ interface Education {
   linkDownload: string
 }
 
-const API_URL = 'http://localhost:3000/api/education'
+//const API_URL = 'http://localhost:3000/api/education'
+const API_URL = `${import.meta.env.VITE_API_URL}/api/education`
 const login = ref(true)
 const error = ref('')
 const educations = ref<Education[]>([])

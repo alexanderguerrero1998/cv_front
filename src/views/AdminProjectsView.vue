@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {onMounted, ref} from 'vue'
-import ProjectCard from "@/components/ProjectCard.vue";
+import { onMounted, ref } from 'vue'
+import ProjectCard from '@/components/ProjectCard.vue'
 import { useRouter } from 'vue-router'
 
 interface Project {
@@ -16,46 +16,46 @@ interface Project {
 }
 
 const router = useRouter()
-const API_URL = 'http://localhost:3000/api/portfolio'
-const projects =  ref<Project[]>([])
-const error =  ref('')
+//const API_URL = 'http://localhost:3000/api/portfolio'
+const API_URL = `${import.meta.env.VITE_API_URL}/api/portfolio`
+const projects = ref<Project[]>([])
+const error = ref('')
 const loading = ref(true)
 
-async  function getProject(){
-
+async function getProject() {
   try {
-    const response =  await fetch(API_URL)
+    const response = await fetch(API_URL)
     const data = await response.json()
-    if(!response.ok){
+    if (!response.ok) {
       // noinspection ExceptionCaughtLocallyJS
       throw new Error(data.message)
     }
     projects.value = data
-
   } catch (e) {
-    if(e instanceof Error)
-    {
+    if (e instanceof Error) {
       error.value = e.message
     }
-
   } finally {
     loading.value = false
   }
 }
 
-onMounted(()=>{
+onMounted(() => {
   getProject()
 })
 async function deleteProject(id: string) {
   try {
     const response = await fetch(`${API_URL}/${id}`, {
-      method: 'DELETE',  credentials: 'include' })
+      method: 'DELETE',
+      credentials: 'include',
+    })
 
-    if (!response.ok){
+    if (!response.ok) {
       // noinspection ExceptionCaughtLocallyJS
-      throw new Error('Delete Error')}
+      throw new Error('Delete Error')
+    }
 
-    projects.value = projects.value.filter(p => p._id !== id)
+    projects.value = projects.value.filter((p) => p._id !== id)
   } catch (e) {
     if (e instanceof Error) error.value = e.message
   }
@@ -71,10 +71,9 @@ function editProject(id: string) {
   <button @click="router.push({ name: 'projectCreate' })">New Project</button>
 
   <ProjectCard v-for="project in projects" :key="project._id" v-bind="project">
-
     <!--Here you can see detail each project-->
     <template #details>
-      <RouterLink :to="{name:'projectDetail', params: {id:project._id}}">
+      <RouterLink :to="{ name: 'projectDetail', params: { id: project._id } }">
         View More
       </RouterLink>
     </template>
@@ -85,6 +84,4 @@ function editProject(id: string) {
       <button @click="deleteProject(project._id)">Delete</button>
     </template>
   </ProjectCard>
-
 </template>
-

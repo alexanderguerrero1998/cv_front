@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import {ref,onMounted} from 'vue'
-import {useRouter, useRoute} from 'vue-router'
-
+import { ref, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
-const API_URL = 'http://localhost:3000/api/portfolio'
+//const API_URL = 'http://localhost:3000/api/portfolio'
+const API_URL = `${import.meta.env.VITE_API_URL}/api/portfolio`
+
 const loading = ref(true)
 const error = ref('')
 
@@ -17,7 +18,7 @@ const form = ref({
   technologies: [] as string[],
   linkRepository: '',
   icon: '',
-  linkVideo: ''
+  linkVideo: '',
 })
 
 // Upload current data of the project
@@ -31,7 +32,7 @@ async function loadProject() {
       throw new Error(data.message)
     }
 
-    form.value = { ...data }  // Fill the form with current data
+    form.value = { ...data } // Fill the form with current data
   } catch (e) {
     if (e instanceof Error) error.value = e.message
   } finally {
@@ -47,7 +48,7 @@ async function updateProject() {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form.value),
-      credentials: 'include'
+      credentials: 'include',
     })
     const data = await response.json()
     if (!response.ok) {
@@ -65,7 +66,6 @@ async function updateProject() {
 onMounted(() => {
   loadProject()
 })
-
 </script>
 <template>
   <div v-if="loading">Loading</div>
@@ -85,7 +85,13 @@ onMounted(() => {
 
     <input
       :value="form.technologies.join(', ')"
-      @input="(e) => form.technologies = (e.target as HTMLInputElement).value.split(',').map(t => t.trim()).filter(t => t !== '')"
+      @input="
+        (e) =>
+          (form.technologies = (e.target as HTMLInputElement).value
+            .split(',')
+            .map((t) => t.trim())
+            .filter((t) => t !== ''))
+      "
       placeholder="Tech 1, Tech 2, Tech 3"
     />
 

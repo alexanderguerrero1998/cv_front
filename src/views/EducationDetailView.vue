@@ -12,7 +12,9 @@ interface Education {
   linkDownload: string
 }
 
-const API_URL = 'http://localhost:3000/api/education'
+//const API_URL = 'http://localhost:3000/api/education'
+const API_URL = `${import.meta.env.VITE_API_URL}/api/education`
+
 const loading = ref(true)
 const error = ref('')
 const educations = ref<Education[]>([])
@@ -48,7 +50,7 @@ onMounted(() => {
   <div class="box" v-else>
     <div class="cover">
       <div class="center">
-        <div class="stack  box-info" v-if="education">
+        <div class="stack box-info" v-if="education">
           <div>{{ education.name }}</div>
           <div>
             <span>{{ education.educationType }}</span> {{ education.degree }} ⊙
@@ -56,9 +58,7 @@ onMounted(() => {
           </div>
           <div>{{ education.description }}</div>
           <div>
-            <a :href="education.linkDownload" rel="">
-            Certificate (PDF)
-            </a>
+            <a :href="education.linkDownload" rel=""> Certificate (PDF) </a>
           </div>
         </div>
       </div>
@@ -67,8 +67,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
-
 .box-info {
   background: var(--gray-9-5);
   padding: var(--s3);
@@ -89,7 +87,6 @@ onMounted(() => {
 }
 .stack > div:nth-child(3) {
   color: var(--gray-5);
-
 }
 
 a {
@@ -100,7 +97,7 @@ a {
   padding: var(--s-5);
   border-radius: var(--s-5);
 }
-a:hover{
+a:hover {
   background: var(--gray-5);
 }
 span {
@@ -109,5 +106,4 @@ span {
   padding: var(--s-7);
   border-radius: var(--s-5);
 }
-
 </style>

@@ -14,7 +14,9 @@ interface Project {
   linkVideo: string
 }
 const route = useRoute()
-const API_URL = 'http://localhost:3000/api/portfolio'
+//const API_URL = 'http://localhost:3000/api/portfolio'
+const API_URL = `${import.meta.env.VITE_API_URL}/api/portfolio`
+
 const project = ref<Project | null>(null)
 const projects = ref<Project[]>([])
 const error = ref('')
@@ -146,5 +148,4 @@ const embedUrl = computed(() => {
   font-weight: 500;
   background: white;
 }
-
 </style>
