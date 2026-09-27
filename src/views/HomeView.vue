@@ -64,7 +64,7 @@ const contactLinks = computed(
                 {{ lastName }}
               </div>
 
-              <div class="box-desciption center">
+              <div class="box-desciption">
                 <p>{{ person[0]?.biography }}</p>
               </div>
 
@@ -136,10 +136,10 @@ img {
 }
 
 .box-download > a {
-  color: var(--gray-10);
-  background: var(--gray-1);
-  border-radius: var(--s-6);
-  padding: var(--s-5);
+  color: var(--gray-5);
+  background: var(--gray-9);
+
+  padding: var(--s-6);
   font-weight: 500;
 }
 .box-desciption {
@@ -161,11 +161,19 @@ img {
   font-size: var(--s-3);
   color: var(--gray-6);
 }
+.box-footer > div > p:nth-child(1) {
+  color: var(--gray-1);
+  font-weight: 500;
+}
+
 .box-why {
   font-size: var(--s-1);
   color: var(--gray-6);
 }
-
+.box-why > p:nth-child(1) {
+  color: var(--gray-1);
+  font-weight: 500;
+}
 .margin-stack-footer {
   --margin-stack: var(--s-7);
 }
