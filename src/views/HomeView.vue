@@ -101,7 +101,7 @@ const contactLinks = computed(
 
 <style scoped>
 img {
-  width: clamp(300px, 30vw, 500px);
+  width: clamp(200px, 30vw, 500px);
 }
 
 .box-info {
