@@ -68,24 +68,33 @@ const contactLinks = computed(
                 <p>{{ person[0]?.biography }}</p>
               </div>
 
-              <div class="box-download center">
-                <a :href="person[0]?.linkImg" download>
-                  <span dir="rtl" class="with-icon">
-                    <svg class="icon">
-                      <use href="#icon-download"></use>
-                    </svg>
-                    <p>Download CV (PDF)</p>
-                  </span>
-                </a>
+              <div class="box-links center">
+                <div class="switcher">
+                  <div v-for="s in section" :key="s._id">
+                    <SectionCard v-bind="s" />
+                  </div>
+                </div>
               </div>
 
-            </div>
-          </div>
+              <div class="box-why"></div>
 
-          <div class="box-links center">
-            <div class="switcher">
-              <div v-for="s in section" :key="s._id">
-                <SectionCard v-bind="s" />
+              <div class="box-footer">
+                <div class="stack margin-stack-footer">
+                  <p>CONTACTO</p>
+                  <p>C. Juan Pio Montufar & Manuel Quiroga</p>
+                  <p>alexanderxn3@gmail.com</p>
+                  <p>099 466 4469 | 099 488 7284</p>
+                  <div class="box-download ">
+                    <a :href="person[0]?.linkImg" download>
+                      <span dir="rtl" class="with-icon">
+                        <svg class="icon">
+                          <use href="#icon-download"></use>
+                        </svg>
+                        <p>Download CV (PDF)</p>
+                      </span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -112,18 +121,13 @@ img {
   /*display: flex;*/ /*Ese display: flex no aporta nada y, en este caso, está interfiriendo con el comportamiento del Switcher.*/
   color: inherit;
 }
-.box-download {
-  font-size: var(--s0);
-  display: flex;
-  color: inherit;
-}
+
 .box-download > a {
   color: var(--gray-10);
   background: var(--gray-1);
   border-radius: var(--s-6);
-  padding-inline: var(--s0);
+  padding:var(--s-5);
   font-weight: 500;
-
 }
 .box-desciption {
   text-align: center;
@@ -138,5 +142,14 @@ img {
   text-align: center;
   font-size: clamp(var(--s3), 4vw, var(--s6));
   font-weight: 700;
+}
+
+.box-footer {
+  font-size: var(--s-3);
+  color: var(--gray-6);
+}
+
+.margin-stack-footer {
+  --margin-stack: var(--s-7);
 }
 </style>
