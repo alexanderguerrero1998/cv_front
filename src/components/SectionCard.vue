@@ -14,8 +14,6 @@ defineProps<{
   active: boolean
   url?: string
 }>()
-
-
 </script>
 
 <template>
@@ -31,23 +29,23 @@ defineProps<{
 </template>
 
 <style scoped>
- div{
-    background: var(--cod-gray);
-    color: var(--white);
-    padding-inline: var(--s-1);
-   padding-block: var(--s-10);
-    text-decoration: none;
-   font-size: var(--s-1);
-   text-transform: uppercase;
-   text-decoration: underline;
+div {
+  background: inherit;
+  color: var(--gray-6);
+  padding-inline: var(--s-1);
+  padding-block: var(--s-10);
+  text-decoration: none;
+  font-size: var(--s-1);
+  text-transform: uppercase;
+  text-decoration: underline;
+}
 
-
- }
- div:hover{
-  background: #7d7d7d;
- }
- div > a{
-   color: inherit;
-   text-decoration: inherit;
- }
+div > a {
+  color: inherit;
+  text-decoration: inherit;
+}
+div:hover {
+  color: var(--gray-6);
+  background-color: hsl(from var(--gray-7) h s l / 5%);
+}
 </style>

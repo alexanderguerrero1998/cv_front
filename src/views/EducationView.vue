@@ -44,20 +44,38 @@ onMounted(() => {
     <div class="cover">
       <div class="center">
         <div class="stack">
-          <h1>Education</h1>
-          <div class="stack bone-children">
-            <EducationCard v-for="education in educations" :key="education._id" v-bind="education">
-              <template #details>
-                <RouterLink :to="{ name: 'educationDetail', params: { id: education._id } }">
-                  View Detail
-                </RouterLink>
-              </template>
-            </EducationCard>
-          </div>
+          <EducationCard v-for="education in educations" :key="education._id" v-bind="education">
+            <template #details>
+              <RouterLink :to="{ name: 'educationDetail', params: { id: education._id } }">
+                VIEW DETAILS
+              </RouterLink>
+            </template>
+          </EducationCard>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.box {
+  background: var(--gray-10);
+  border-radius: var(--s-5);
+}
+.stack > * {
+  background: var(--gray-9-5);
+  color: var(--gray-1);
+}
+.stack a {
+  font-size: var(--s-2);
+  color: var(--gray-5);
+  background: var(--gray-9);
+  text-decoration: none;
+  padding: var(--s-5);
+  font-weight: 500;
+  border-radius: var(--s-9);
+}
+.stack a:hover {
+  background: var(--gray-8);
+}
+</style>

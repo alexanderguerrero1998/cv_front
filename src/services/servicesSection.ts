@@ -1,4 +1,5 @@
-const API_URL ='http://localhost:3000/api/section'
+//const API_URL ='http://localhost:3000/api/section'
+const API_URL = `${import.meta.env.VITE_API_URL}/api/section`
 
 interface Section {
   _id: string

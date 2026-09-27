@@ -1,5 +1,6 @@
-const API_URL = 'http://localhost:3000/api/person'
+//const API_URL = 'http://localhost:3000/api/person'
 //const API_URL_PORTFOLIO = 'http://localhost:3000/api/portfolio/count'
+const API_URL = `${import.meta.env.VITE_API_URL}/api/person`
 
 interface Person {
   _id: string

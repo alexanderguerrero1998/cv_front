@@ -69,7 +69,7 @@ const contactLinks = computed(
               </div>
 
               <div class="box-download center">
-                <a href="#">
+                <a :href="person[0]?.linkImg" download>
                   <span dir="rtl" class="with-icon">
                     <svg class="icon">
                       <use href="#icon-download"></use>
@@ -78,6 +78,7 @@ const contactLinks = computed(
                   </span>
                 </a>
               </div>
+
             </div>
           </div>
 
@@ -117,18 +118,20 @@ img {
   color: inherit;
 }
 .box-download > a {
-  color: black;
-  background: white;
+  color: var(--gray-10);
+  background: var(--gray-1);
   border-radius: var(--s-6);
   padding-inline: var(--s0);
   font-weight: 500;
+
 }
 .box-desciption {
   text-align: center;
   font-size: clamp(var(--s-1), 1vw, var(--s1));
+  color: var(--gray-6);
 }
 .box {
-  background: var(--cod-gray);
+  background: var(--gray-10);
   color: var(--white);
 }
 .names {

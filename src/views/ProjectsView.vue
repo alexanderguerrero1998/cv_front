@@ -45,19 +45,23 @@ onMounted(() => {
 <template>
   <div v-if="loading">Loading</div>
   <div v-else-if="error">{{ error }}</div>
-  <div class="box" v-else>
+  <div class="box box-projects" v-else>
     <div class="cover">
       <div class="center">
         <div class="stack">
-          <div class="title-projects"><h1>PROJECTS</h1></div>
-          <div class="grid boulder-children">
-            <ProjectCard class="" v-for="project in projects" :key="project._id" v-bind="project">
+          <div class="grid">
+            <ProjectCard
+              class="cards"
+              v-for="project in projects"
+              :key="project._id"
+              v-bind="project"
+            >
               <template #details>
                 <RouterLink
                   class="box-link-color"
                   :to="{ name: 'projectDetail', params: { id: project._id } }"
                 >
-                  view more
+                  VIEW PROJECT
                 </RouterLink>
               </template>
             </ProjectCard>
@@ -70,7 +74,24 @@ onMounted(() => {
 
 <style scoped>
 .box-link-color {
-  color: var(--cod-gray);
+  color: var(--gray-5);
+  background-color: hsl(from var(--gray-1) h s l / 5%);
+
+  font-size: var(--s-2);
+  padding: var(--s-5);
+  border-radius: var(--s-7);
+  font-weight: 500;
+  text-decoration: none;
+}
+.box-link-color:hover{
+  background: var(--gray-9);
 }
 
+.box-projects {
+  background-color: var(--gray-10);
+}
+.cards {
+  background: var(--gray-9-5);
+  border-radius: var(--s-5);
+}
 </style>

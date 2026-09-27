@@ -43,10 +43,10 @@ const nickname = computed(() => person.value[0]?.nickname.toUpperCase() ?? '')
 
 <style scoped>
 .box-header {
-  background: var(--cod-gray);
+  background: var(--gray-10);
 }
 .main-content {
-  color: var(--white);
+  color: var(--gray-1);
   font-size: var(--s1);
 }
 .main-content > a {
@@ -63,5 +63,4 @@ const nickname = computed(() => person.value[0]?.nickname.toUpperCase() ?? '')
   margin-top: auto;
   margin-bottom: auto;
 }
-
 </style>

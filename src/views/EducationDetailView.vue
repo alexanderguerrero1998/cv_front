@@ -48,13 +48,18 @@ onMounted(() => {
   <div class="box" v-else>
     <div class="cover">
       <div class="center">
-        <div class="stack margin-stack" v-if="education">
+        <div class="stack  box-info" v-if="education">
           <div>{{ education.name }}</div>
-          <div>{{ education.degree }}</div>
-          <div>{{ education.duration }}</div>
-          <div>{{ education.educationType }}</div>
+          <div>
+            <span>{{ education.educationType }}</span> {{ education.degree }} ⊙
+            {{ education.duration }}
+          </div>
           <div>{{ education.description }}</div>
-          <div>{{ education.linkDownload }}</div>
+          <div>
+            <a :href="education.linkDownload" rel="">
+            Certificate (PDF)
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -62,7 +67,47 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.margin-stack {
-  --margin-stack: var(--s-2);
+
+
+.box-info {
+  background: var(--gray-9-5);
+  padding: var(--s3);
+  border-radius: var(--s-3);
 }
+.box {
+  background: var(--gray-10);
+  color: var(--gray-1);
+}
+.stack > div:nth-child(1) {
+  font-size: clamp(var(--s3), 4vw, var(--s6));
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.stack > div:nth-child(2) {
+  font-size: var(--s-1);
+  color: var(--gray-5);
+}
+.stack > div:nth-child(3) {
+  color: var(--gray-5);
+
+}
+
+a {
+  font-size: var(--s-1);
+  background: var(--gray-1);
+  text-decoration: none;
+  color: var(--gray-10);
+  padding: var(--s-5);
+  border-radius: var(--s-5);
+}
+a:hover{
+  background: var(--gray-5);
+}
+span {
+  color: var(--blue-5);
+  background-color: hsl(from var(--blue-7) h s l / 10%);
+  padding: var(--s-7);
+  border-radius: var(--s-5);
+}
+
 </style>
