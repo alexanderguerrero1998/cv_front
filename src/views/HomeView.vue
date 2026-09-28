@@ -93,10 +93,10 @@ const contactLinks = computed(
 
               <div class="box-footer">
                 <div class="stack margin-stack-footer">
-                  <p>CONTACTO</p>
+                  <p>CONTACT</p>
                   <p>C. Juan Pio Montufar & Manuel Quiroga</p>
                   <p>alexanderxn3@gmail.com</p>
-                  <p>099 466 4469 | 099 488 7284</p>
+                  <p>096 324 7410 | 099 488 7284</p>
                   <div class="box-download">
                     <a :href="person[0]?.linkImg" download>
                       <span dir="rtl" class="with-icon">
